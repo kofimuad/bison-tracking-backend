@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+motor
+pydantic
+requests
+python-dotenv
+opencv-python
+ultralytics
+numpy
