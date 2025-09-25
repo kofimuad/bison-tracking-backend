@@ -5,8 +5,8 @@ from datetime import datetime
 
 class BisonStats(BaseModel):
     total_frames: int
-    total_detection: int
-    max_bisons_in_frame: int
+    total_detections: int
+    max_bison_in_frame: int
     avg_confidence: float
     fps: float
     timestamp: datetime = Field(default_factory=datetime.now())
