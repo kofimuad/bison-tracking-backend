@@ -9,7 +9,7 @@ bison_router = APIRouter()
 
 @bison_router.get("/latest_stats", response_model=BisonStats, status_code=status.HTTP_200_OK, response_description="Get the latest bison tracking stats")
 async def get_latest_stats():
-    latest_stats = await bison_db.dectection_data.find_one(
+    latest_stats = await bison_db.detection_data.find_one(
         {}, sort=[("timestamp", -1)]
     )
     if not latest_stats:
@@ -22,7 +22,7 @@ async def get_latest_stats():
 
 @bison_router.get("/all_stats", response_model=List[BisonStats], status_code=status.HTTP_200_OK, response_description="Get all bison tracking stats")
 async def get_all_stats():
-    all_stats = bison_db.dectection_data.find({})
+    all_stats = bison_db.detection_data.find({})
     all_stats_list = await all_stats.to_list(length=1000000)
     if not all_stats_list:
         raise HTTPException(

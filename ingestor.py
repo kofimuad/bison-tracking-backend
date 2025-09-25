@@ -20,7 +20,7 @@ async def ingest_data():
 
             data["timestamp"] = datetime.now()
 
-            await bison_db.dectection_data.insert_one(data)
+            await bison_db.detection_data.insert_one(data)
 
             print(f"Saved stats for frame: {data['total_frames']}")
         except requests.exceptions.ConnectionError:
